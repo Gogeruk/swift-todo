@@ -1,26 +1,27 @@
 import Foundation
 
 struct TodoItem: Codable, Identifiable {
-    let id: UUID
-    var title: String?
-    var completed: Bool = false
+    internal var id: UUID        = UUID()
+    private  var title: String   = "Untitled"
+    private  var completed: Bool = false
 
-    mutating func toggleCompletion() {
+    mutating internal func getId() -> UUID {
+        self.id
+    }
+
+    mutating internal func toggleCompletion() {
         completed.toggle()
     }
 
-    mutating func changeTitle(title: String? = nil) {
+    mutating internal func getCompletion() -> Bool {
+        self.completed
+    }
+
+    mutating internal func setTitle(title: String) {
         self.title = title
     }
 
-    init(
-        id: UUID = UUID(),
-        title: String,
-        completed: Bool = false
-    ) {
-        self.id = id
-        self.title = title
-        self.completed = completed
+    internal func getTitle() -> String {
+        return self.title
     }
 }
-
