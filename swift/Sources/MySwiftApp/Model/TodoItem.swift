@@ -2,8 +2,8 @@ import Foundation
 
 struct TodoItem: Codable, Identifiable {
     internal var id: UUID        = UUID()
-    private  var title: String   = "Untitled"
-    private  var completed: Bool = false
+    internal var title: String   = "Untitled"
+    internal var completed: Bool = false
 
     mutating internal func getId() -> UUID {
         self.id
